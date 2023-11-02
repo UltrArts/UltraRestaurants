@@ -8,4 +8,8 @@ use Illuminate\Database\Eloquent\Model;
 class KitchenType extends Model
 {
     use HasFactory;
+
+    public function rest(){
+        return $this->HasOne(Restaurant::class);
+    }
 }

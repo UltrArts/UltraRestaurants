@@ -8,4 +8,53 @@ use Illuminate\Database\Eloquent\Model;
 class Restaurant extends Model
 {
     use HasFactory;
+    use SoftDeletes;
+
+    protected $fillable = [
+        'name',
+        'min_price',
+        'max_price',
+        'rate',
+        'address',
+        'open_time',
+        'close_time',
+        'kitchen_id',
+        'user_id',
+    ];
+
+
+    // relacionamentos entre modelos diferentes
+
+    
+    public function user()
+    {
+        return $this->belongsTo(User::class);
+    }
+    
+
+    public function rates(){
+        return $this->belongsToMany(Rate::class);
+    }
+
+    public function comments(){
+        return $this->belongsToMany(Comment::class);
+    }
+
+    public function comment(): HasMany
+    {
+        return $this->hasMany(Comment::class);
+    }
+
+    public function photos(){
+        return $this->belongsToMany(Photo::class);
+    }
+
+    public function MenuItems(){
+        return $this->belongsToMany(MenuItem::class);
+    }
+
+    public function KitchenType(){
+        return $this->belongsTo(KitchenType::class);
+    }
+
 }
