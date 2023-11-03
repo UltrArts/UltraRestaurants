@@ -1,6 +1,9 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Livewire\{
+    Restaurant
+};
 
 /*
 |--------------------------------------------------------------------------
@@ -25,4 +28,5 @@ Route::middleware([
     Route::get('/dashboard', function () {
         return view('dashboard');
     })->name('dashboard');
+    Route::get('/restaurant', [Restaurant::class, 'render'])->name('rest');
 });

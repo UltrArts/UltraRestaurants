@@ -14,6 +14,8 @@
 
     </head>
     <body class="antialiased">
+
+
     </body>
     <script src="{{ asset('build/assets/bootstrap/bootstrap.js') }}"></script>
         <script src="{{ asset('build/assets/fontawesome/all.js') }}"></script>
