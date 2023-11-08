@@ -18,6 +18,7 @@ return new class extends Migration
             $table->double('max_price');
             $table->integer('rate')->default(0);
             $table->string('address');
+            $table->string('cover')->nullable();
             $table->time('open_time', $precision = 0);
             $table->time('close_time', $precision = 0);
             $table->unsignedBigInteger('kitchen_id')->nullable();

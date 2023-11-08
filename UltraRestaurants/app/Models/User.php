@@ -61,5 +61,8 @@ class User extends Authenticatable
         'profile_photo_url',
     ];
 
-    
+    public function comments(): HasMany
+    {
+        return $this->hasMany(Comment::class);
+    }
 }

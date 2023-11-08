@@ -1,8 +1,9 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use App\Http\Livewire\{
-    Restaurant
+use Illuminate\Http\Request;
+use App\Livewire\{
+    RestManage
 };
 
 /*
@@ -17,7 +18,8 @@ use App\Http\Livewire\{
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    // return view('welcome');
+    return redirect()->route('login');
 });
 
 Route::middleware([
@@ -28,5 +30,6 @@ Route::middleware([
     Route::get('/dashboard', function () {
         return view('dashboard');
     })->name('dashboard');
-    Route::get('/restaurant', [Restaurant::class, 'render'])->name('rest');
+    Route::get('restaurante', [RestManage::class, 'render'])->name('rest');
+    Route::get('restaurante/detalhes/{name}', [RestManage::class, 'details'])->name('rest.details');
 });

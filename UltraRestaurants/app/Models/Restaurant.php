@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\SoftDeletes;
 
 class Restaurant extends Model
 {
@@ -16,6 +17,7 @@ class Restaurant extends Model
         'max_price',
         'rate',
         'address',
+        'cover',
         'open_time',
         'close_time',
         'kitchen_id',
@@ -49,11 +51,11 @@ class Restaurant extends Model
         return $this->belongsToMany(Photo::class);
     }
 
-    public function MenuItems(){
+    public function menuItems(){
         return $this->belongsToMany(MenuItem::class);
     }
 
-    public function KitchenType(){
+    public function kitchenType(){
         return $this->belongsTo(KitchenType::class);
     }
 

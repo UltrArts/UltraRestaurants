@@ -12,6 +12,7 @@
         <link href="https://fonts.bunny.net/css?family=figtree:400,500,600&display=swap" rel="stylesheet" />
         <link href="{{ asset('build/assets/fontawesome/all.css') }}" rel="stylesheet">
         <link href="{{ asset('build/assets/bootstrap/bootstrap.css') }}" rel="stylesheet">
+        <link href="{{ asset('build/assets/custom.css') }}" rel="stylesheet">
 
         <!-- Scripts -->
         @vite(['resources/css/app.css', 'resources/js/app.js'])
@@ -43,7 +44,15 @@
         @stack('modals')
 
         @livewireScripts
+        <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+        <x-livewire-alert::scripts />
+        <script src="{{ asset('vendor/livewire-alert/livewire-alert.js') }}"></script> 
+        <x-livewire-alert::flash /> 
+        
+
         <script src="{{ asset('build/assets/bootstrap/bootstrap.js') }}"></script>
         <script src="{{ asset('build/assets/fontawesome/all.js') }}"></script>
+
+       
     </body>
 </html>

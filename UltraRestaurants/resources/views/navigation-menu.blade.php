@@ -19,7 +19,16 @@
 
                 <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
                     <x-nav-link href="{{ route('rest') }}" :active="request()->routeIs('rest')">
-                        {{ __('Restaurante') }}
+                        @if (session()->has('rest'))
+                            {{ __('Gestão') }}
+                        @else
+                            {{ __('Restaurante') }}
+                        @endif
+                    </x-nav-link>
+                </div>
+                <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
+                    <x-nav-link href="{{ route('profile.show') }}" :active="request()->routeIs('profile.show')">
+                            {{ __('Perfil') }}
                     </x-nav-link>
                 </div>
             </div>
